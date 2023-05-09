@@ -1,0 +1,95 @@
+.home_firstSection {
+  width: 100vw;
+  height: 100%;
+}
+
+.home_firstSection figure {
+  width: 100vw;
+  height: fit-content;
+}
+
+.home_firstSection figure img {
+  width: 100%;
+  height: 100%;
+}
+
+.home {
+  margin-top: 6rem;
+}
+
+.home_bannerImage {
+  width: 100vw;
+  min-height: 350px;
+  height: fit-content;
+  background: url(https://img.freepik.com/fotos-premium/primer-plano-lindo-bebe-sonriente-cama_181624-48870.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home_bannerImage h2 {
+  width: 50%;
+  float: right;
+  margin-top: 5%;
+  color: var(--baby_brown);
+  font-weight: 600;
+}
+
+.inactive {
+  display: none;
+}
+
+.home_bannerInfo {
+  color: var(--baby_blue);
+  font-weight: 600;
+  font-size: var(--x-small);
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  .home_bannerImage {
+    min-height: 450px;
+    background: url(https://charanga.es/img/cms/bannerjogging.png);
+    background-size: cover;
+  }
+
+  .home_bannerImage div {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    padding: 1rem 2rem;
+    margin-top: 5%;
+  }
+
+  .home_bannerImage div h2,
+  .home_bannerImage div p {
+    width: 100%;
+    text-align: left;
+    font-size: var(--small);
+    color: white;
+    font-weight: 600;
+  }
+
+  .home_bannerImage div h2 {
+    padding-top: 10%;
+    font-size: var(--x-large);
+    font-weight: 600;
+    color: var(--baby_blue);
+  }
+}
+
+@media (min-width: 900px) {
+  .home_bannerImage {
+    min-height: 550px;
+  }
+
+  .home_bannerImage div {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    padding: 1rem 4rem 1rem 2rem;
+    margin-top: 5%;
+  }
+}

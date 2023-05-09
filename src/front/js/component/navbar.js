@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,21 +13,16 @@ import {
 //import logo
 
 import logo from "../../img/2kids.png";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
-  //contenedor del width de la pantalla
-
-  const [windowsWidth, setWindowsWidth] = useState(window.innerWidth);
-
-  const handleResize = () => {
-    setWindowsWidth(window.innerWidth);
-  };
+  const { store, actions } = useContext(Context);
 
   useEffect(() => {
-    handleResize();
-  });
+    actions.handleResize();
+  }, []);
 
-  window.addEventListener("resize", handleResize);
+  window.addEventListener("resize", actions.handleResize);
 
   //list of user icons
 
@@ -79,7 +74,7 @@ export const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-md">
-      {windowsWidth <= "767" ? (
+      {store.windowsWidth <= "767" ? (
         <div className="container-fluid">
           <Link className="navbar_logo" to="/">
             <img src={logo} alt="2kids logo" />
@@ -87,7 +82,7 @@ export const Navbar = () => {
           <ul className="navbar_userIcons w-50 d-flex">{userIcons}</ul>
           <button
             className={
-              windowsWidth <= "335"
+              store.windowsWidth <= "335"
                 ? "navbar-toggler ms-auto me-0 float_rigth"
                 : "navbar-toggler"
             }

@@ -1,0 +1,55 @@
+.home_firstDescription {
+  width: 100vw;
+  height: 30%;
+  min-height: 400px;
+  background: var(--light_pink);
+  display: flex;
+  place-content: center;
+}
+
+.home_firstImg_Border {
+  width: 95%;
+  height: 80%;
+  border: 1px dashed var(--baby_red);
+  margin: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 4rem 1rem 1rem 1rem;
+}
+
+.home_firstImg_Border h2 {
+  position: absolute;
+  font-size: var(--medium);
+  color: var(--baby_blue);
+  font-weight: 600;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  top: 4%;
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.home_firstImage {
+  display: flex;
+  flex-direction: column-reverse;
+  border-radius: 0.3rem;
+}
+
+.home_firstImage figure {
+  width: 100%;
+}
+
+.home_firstImage figure img {
+  width: 100%;
+  border-radius: 0 0 0.3rem 0.3rem;
+}
+
+.home_firstImage p {
+  padding: 2rem 3rem;
+  margin: 0;
+  background: white;
+  border-radius: 0.3rem 0.3rem 0 0;
+  color: var(--baby_green);
+  text-align: justify;
+}

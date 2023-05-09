@@ -1,7 +1,14 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
-    store: {},
-    actions: {},
+    store: {
+      windowsWidth: window.innerWidth,
+    },
+    actions: {
+      handleResize: () => {
+        const store = getStore();
+        setStore({ windowsWidth: window.innerWidth });
+      },
+    },
   };
 };
 

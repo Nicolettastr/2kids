@@ -14,11 +14,17 @@
   --baby_blue: #3c5474;
   --baby_red: #d46c6c;
   --baby_pink: #ffb7a1;
+  --baby_brown: #7f3d38;
   --light_yellow: #fdf7c3;
   --light_green: #c8dbbe;
-  --light_blue: #c4d7e0;
+  --light_blue: #769fcd;
   --light_red: #ffb4b4;
-  --light_pink: #ffcefe;
+  --light_pink: #fcd1d1e3;
+  --x-small: 1rem;
+  --small: 1.2rem;
+  --medium: 1.6rem;
+  --large: 2rem;
+  --x-large: 2.4rem;
 }
 
 a {
@@ -40,4 +46,8 @@ li {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.p_1 {
+  padding: 1rem;
 }
