@@ -5,6 +5,8 @@
 
 .home_firstSection figure {
   width: 100vw;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
 }
 
@@ -20,6 +22,8 @@
 .home_bannerImage {
   width: 100vw;
   min-height: 350px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   background: url(https://img.freepik.com/fotos-premium/primer-plano-lindo-bebe-sonriente-cama_181624-48870.jpg);
   background-position: center;
@@ -55,7 +59,12 @@
 
   .home_bannerImage div {
     width: 40%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     float: right;
     padding: 1rem 2rem;
@@ -85,7 +94,12 @@
 
   .home_bannerImage div {
     width: 45%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     float: right;
     padding: 1rem 4rem 1rem 2rem;
