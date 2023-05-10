@@ -17,7 +17,7 @@
   --baby_brown: #7f3d38;
   --light_yellow: #fdf7c3;
   --light_green: #c8dbbe;
-  --light_blue: #769fcd;
+  --light_blue: #a7cbd9;
   --light_red: #ffb4b4;
   --light_pink: #fcd1d1e3;
   --x-small: 1rem;
@@ -25,6 +25,10 @@
   --medium: 1.6rem;
   --large: 2rem;
   --x-large: 2.4rem;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 a {
@@ -50,4 +54,11 @@ li {
 
 .p_1 {
   padding: 1rem;
+}
+
+.title {
+  font-size: var(--medium);
+  color: var(--baby_blue);
+  font-weight: 600;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }

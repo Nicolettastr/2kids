@@ -1,4 +1,5 @@
-.home_firstDescription {
+.home_firstDescription,
+.home_secondDescription {
   width: 100vw;
   height: 30%;
   min-height: 400px;
@@ -7,7 +8,12 @@
   place-content: center;
 }
 
-.home_firstImg_Border {
+.home_secondDescription {
+  background: var(--light_yellow);
+}
+
+.home_firstImg_Border,
+.home_secondImg_Border {
   width: 95%;
   height: 80%;
   border: 1px dashed var(--baby_red);
@@ -19,37 +25,116 @@
   padding: 4rem 1rem 1rem 1rem;
 }
 
-.home_firstImg_Border h2 {
+.home_secondImg_Border {
+  border: 1px dashed var(--baby_brown);
+}
+
+.home_firstImg_Border h2,
+.home_secondImg_Border h2 {
   position: absolute;
-  font-size: var(--medium);
-  color: var(--baby_blue);
-  font-weight: 600;
-  font-family: Georgia, "Times New Roman", Times, serif;
   top: 4%;
   text-align: left;
   padding-left: 2rem;
 }
 
-.home_firstImage {
+.home_firstImage,
+.home_secondImage {
   display: flex;
   flex-direction: column-reverse;
   border-radius: 0.3rem;
+  max-width: 300px;
 }
 
-.home_firstImage figure {
+.home_firstImage figure,
+.home_secondImage figure {
   width: 100%;
+  height: fit-content;
 }
 
-.home_firstImage figure img {
+.home_firstImage figure img,
+.home_secondImage figure img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 0 0 0.3rem 0.3rem;
 }
 
-.home_firstImage p {
+.home_firstImage p,
+.home_secondImage p {
   padding: 2rem 3rem;
   margin: 0;
   background: white;
   border-radius: 0.3rem 0.3rem 0 0;
   color: var(--baby_green);
   text-align: justify;
+  font-size: var(--small);
+}
+
+@media (min-width: 700px) {
+  .home_firstImage,
+  .home_secondImage {
+    max-width: none;
+  }
+
+  .home_firstImage figure,
+  .home_secondImage figure {
+    width: 275px;
+    height: 275px;
+    max-width: 275px;
+    max-height: 275px;
+    min-width: 275px;
+    min-height: 275px;
+  }
+
+  .home_firstImage {
+    flex-direction: row;
+  }
+
+  .home_secondImage {
+    flex-direction: row-reverse;
+  }
+
+  .home_firstImg_Border h2 {
+    right: 5%;
+  }
+
+  .home_secondImg_Border h2 {
+    left: 5%;
+  }
+
+  .home_firstImg_Border h2,
+  .home_secondImg_Border h2 {
+    position: absolute;
+    top: 6%;
+    width: 50%;
+    max-width: 382px;
+  }
+
+  .home_firstImage p,
+  .home_secondImage p {
+    height: 275px;
+  }
+
+  .home_firstImage p {
+    border-radius: 0 0.3rem 0.3rem 0;
+  }
+
+  .home_firstImage figure img {
+    border-radius: 0.3rem 0 0 0.3rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .home_firstImage,
+  .home_secondImage {
+    width: 78%;
+  }
+
+  .home_firstImg_Border h2 {
+    right: 15%;
+  }
+
+  .home_secondImg_Border h2 {
+    left: 15%;
+  }
 }

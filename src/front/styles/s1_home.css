@@ -59,7 +59,6 @@
     flex-direction: column;
     float: right;
     padding: 1rem 2rem;
-    margin-top: 5%;
   }
 
   .home_bannerImage div h2,
@@ -73,7 +72,7 @@
 
   .home_bannerImage div h2 {
     padding-top: 10%;
-    font-size: var(--x-large);
+    font-size: var(--large);
     font-weight: 600;
     color: var(--baby_blue);
   }
@@ -91,5 +90,9 @@
     float: right;
     padding: 1rem 4rem 1rem 2rem;
     margin-top: 5%;
+  }
+
+  .home_bannerImage div h2 {
+    font-size: var(--x-large);
   }
 }

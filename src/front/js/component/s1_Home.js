@@ -24,7 +24,7 @@ const S1_Home = () => {
       </div>
       <p
         className={
-          store.windowsWidth > "700" ? "inactive" : "home_bannerInfo p_1"
+          store.windowsWidth >= "700" ? "inactive" : "home_bannerInfo p_1"
         }
       >
         Find affordable and high-quality products for your little ones, both new
