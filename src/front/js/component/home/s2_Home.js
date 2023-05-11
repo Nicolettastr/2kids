@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/s2_home.css";
+import "../../../styles/s2_home.css";
 
 const S2_Home = () => {
   const categories = [

@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/s3_home.css";
+import "../../../styles/s3_home.css";
 
 const S3_Home = () => {
   const description = [

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import "../../styles/s1_home.css";
-import { Context } from "../store/appContext";
+import "../../../styles/s1_home.css";
+import { Context } from "../../store/appContext";
 
 const S1_Home = () => {
   const { store } = useContext(Context);
