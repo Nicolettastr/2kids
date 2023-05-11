@@ -34,6 +34,16 @@
   margin-bottom: 5%;
 }
 
-.bill_section button {
-    
+@media (min-width: 700px) {
+  .bill_section {
+    width: 50%;
+    max-width: 350px;
+    max-height: 350px;
+  }
+
+  .bill_button {
+    width: 80%;
+    max-width: 350px;
+    padding: 0 0.5rem;
+  }
 }

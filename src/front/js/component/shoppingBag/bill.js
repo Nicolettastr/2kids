@@ -1,5 +1,6 @@
 import React from "react";
 import "../../../styles/shoppingBag/bill.css";
+import Button from "../tags/button";
 
 const Bill = () => {
   return (
@@ -29,6 +30,13 @@ const Bill = () => {
           </div>
         </div>
       </div>
+      {window.innerWidth >= 700 ? (
+        <div className="shoppingBag_button">
+          <Button classname="bill_button" name="Complete Order"></Button>
+        </div>
+      ) : (
+        ""
+      )}
     </section>
   );
 };

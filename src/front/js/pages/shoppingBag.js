@@ -10,31 +10,37 @@ const ShoppingBag = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <section
-      className={
-        store.shoppingBag.length === 0
-          ? "shoppingBag_section empty"
-          : "shoppingBag_section"
-      }
-    >
-      {store.shoppingBag.length === 0 ? (
-        <div className="shoppingBag_empty flex-center">
-          <figure>
-            <img src={babies} alt="baby growing" />
-          </figure>
-          <h3>Your Shopping Bag Is Empty</h3>
-          <Button name="Go Shopping"></Button>
+    <>
+      <section
+        className={
+          store.shoppingBag.length === 0
+            ? "shoppingBag_section empty"
+            : "shoppingBag_section"
+        }
+      >
+        {store.shoppingBag.length === 0 ? (
+          <div className="shoppingBag_empty flex-center">
+            <figure>
+              <img src={babies} alt="baby growing" />
+            </figure>
+            <h3>Your Shopping Bag Is Empty</h3>
+            <Button name="Go Shopping"></Button>
+          </div>
+        ) : (
+          <>
+            <Full />
+            <Bill />
+          </>
+        )}
+      </section>
+      {window.innerWidth < 700 ? (
+        <div className="shoppingBag_button">
+          <Button name="Complete Order"></Button>
         </div>
       ) : (
-        <>
-          <Full />
-          <Bill />
-          <div className="shoppingBag_button">
-            <Button name="Complete Order"></Button>
-          </div>
-        </>
+        ""
       )}
-    </section>
+    </>
   );
 };
 
