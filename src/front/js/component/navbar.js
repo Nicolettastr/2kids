@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../styles/navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,6 +17,7 @@ import { Context } from "../store/appContext";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
 
   useEffect(() => {
     actions.handleResize();
@@ -38,9 +39,23 @@ export const Navbar = () => {
     },
   ];
 
+  const handleNavbarUserOpt = (item) => {
+    if (item.iconName === "circle-user") {
+      navigate("/profile");
+    } else if (item.iconName === "heart") {
+      console.log("heart");
+    } else if (item.iconName === "bag-shopping") {
+      navigate("/shoppingBag");
+    }
+  };
+
   const userIcons = icons.map((item, index) => {
     return (
-      <li className="flex-center" key={index}>
+      <li
+        onClick={(e) => handleNavbarUserOpt(item.icon)}
+        className="flex-center"
+        key={index}
+      >
         <FontAwesomeIcon className="navbar_iconsOptions" icon={item.icon} />
         {item.icon === faBagShopping ? (
           <span className="navbar_shoppingBar">0</span>

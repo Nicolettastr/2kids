@@ -62,3 +62,28 @@ li {
   font-weight: 600;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
+
+.pink {
+  background-color: var(--light_pink);
+}
+
+.yellow {
+  background-color: var(--light_yellow);
+}
+
+.blue {
+  background-color: var(--light_blue);
+}
+
+.green {
+  background-color: var(--light_green);
+}
+
+.red {
+  background-color: var(--light_red);
+}
+
+.white {
+  background-color: white;
+  border: 1px solid var(--light_yellow);
+}

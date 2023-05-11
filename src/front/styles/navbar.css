@@ -39,8 +39,9 @@
 }
 
 .navbar_iconsOptions {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
 }
 
 .navbar_shoppingBar {
@@ -54,6 +55,19 @@
 
 .float_rigth {
   padding: 0.5rem 0.8rem;
+}
+
+.nav-item {
+  font-size: var(--small);
+}
+
+.nav-item a:hover {
+  text-decoration: underline;
+  color: var(--baby_green);
+}
+
+.btn-outline-success:hover {
+  background-color: white;
 }
 
 @media (min-width: 768px) {
