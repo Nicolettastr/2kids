@@ -6,12 +6,10 @@ const getState = ({ getStore, getActions, setStore }) => {
     },
     actions: {
       handleResize: () => {
-        const store = getStore();
         setStore({ windowsWidth: window.innerWidth });
       },
 
       handleColor: (color) => {
-        const store = getStore();
         setStore({ activeColor: color });
       },
     },
