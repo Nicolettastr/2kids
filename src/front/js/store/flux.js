@@ -3,6 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       windowsWidth: window.innerWidth,
       activeColor: "pink",
+      shoppingBag: [1],
     },
     actions: {
       handleResize: () => {

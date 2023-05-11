@@ -7,6 +7,7 @@ import ig from "../../img/instagram.png";
 import fb from "../../img/facebook.png";
 import tw from "../../img/gorjeo.png";
 import tt from "../../img/tik-tok.png";
+import Button from "./tags/button";
 
 const Footer = () => {
   const socialNetwork = [
@@ -92,7 +93,7 @@ const Footer = () => {
           <form className="footer_form">
             <h2>Join The 2kids Community Now.</h2>
             <input type="email" placeholder="Email" name="email" />
-            <button type="submit">Submit</button>
+            <Button classname='footer_button' type="submit" name="Submit"></Button>
           </form>
         </>
       )}

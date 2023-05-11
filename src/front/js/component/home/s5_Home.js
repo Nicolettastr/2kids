@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
-import "../../../styles/s5_home.css";
+import "../../../styles/home/s5_home.css";
 
 const S5_Home = () => {
   return (

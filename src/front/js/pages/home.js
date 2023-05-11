@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/home.css";
+import "../../styles/home/home.css";
 import S1_Home from "../component/home/s1_Home";
 import S2_Home from "../component/home/s2_Home";
 import S3_Home from "../component/home/s3_Home";

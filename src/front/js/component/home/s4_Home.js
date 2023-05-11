@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../styles/s4_home.css";
+import "../../../styles/home/s4_home.css";
 
 const S4_Home = () => {
   const mothers = [

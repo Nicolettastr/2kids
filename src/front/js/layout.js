@@ -8,7 +8,7 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import Footer from "./component/footer";
 import Profile from "./pages/profile";
-import ShoppingBag from "./pages/profile";
+import ShoppingBag from "./pages/shoppingBag";
 
 //create your first component
 const Layout = () => {

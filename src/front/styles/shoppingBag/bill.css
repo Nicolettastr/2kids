@@ -1,0 +1,39 @@
+.bill_section {
+  padding: 1rem;
+}
+
+.bill_title h5 {
+  color: var(--baby_red);
+}
+
+.bill_container {
+  width: 100%;
+}
+
+.bill_firstSection div,
+.bill_secondSection div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.bill_firstSection,
+.bill_secondSection {
+  padding: 1rem 0;
+  border: 1px solid var(--baby_red);
+}
+
+.bill_firstSection {
+  border-bottom: none;
+  border-radius: 0.3rem 0.3rem 0 0;
+}
+
+.bill_secondSection {
+  border-radius: 0 0 0.3rem 0.3rem;
+  margin-bottom: 5%;
+}
+
+.bill_section button {
+    
+}

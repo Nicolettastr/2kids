@@ -81,14 +81,8 @@
   background-color: rgb(236, 234, 234);
 }
 
-.footer_form button {
-  width: 40%;
-  height: 40px;
+.footer_button {
   max-width: 100px;
-  border: none;
-  border-radius: 0.3rem;
-  color: white;
-  background-color: var(--baby_red);
 }
 
 .mg-top {
