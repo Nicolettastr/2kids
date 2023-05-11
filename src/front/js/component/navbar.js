@@ -70,11 +70,11 @@ export const Navbar = () => {
 
   const opt = [
     {
-      opt: "Contacto",
+      opt: "Contact Us",
       link: "contact",
     },
     {
-      opt: "Sobre Nosotros",
+      opt: "About Us",
       link: "aboutUs",
     },
   ];
