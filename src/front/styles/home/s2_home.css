@@ -50,6 +50,13 @@
   color: var(--baby_blue);
 }
 
+@media (max-width: 335px) {
+  .home_categoriesOptin {
+    width: 120px;
+    height: 120px;
+  }
+}
+
 @media (min-width: 600px) {
   .home_secondSection {
     width: 100vw;

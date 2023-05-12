@@ -5,10 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
   faMagnifyingGlass,
+  faEnvelope,
   faCircleUser,
-  faBagShopping,
-  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
+import Button from "../component/tags/button";
 
 //import logo
 
@@ -25,31 +25,18 @@ export const Navbar = () => {
 
   window.addEventListener("resize", actions.handleResize);
 
-  //list of user icons
-
-  const icons = [
-    {
-      icon: faCircleUser,
-    },
-    {
-      icon: faHeart,
-    },
-    {
-      icon: faBagShopping,
-    },
-  ];
-
   const handleNavbarUserOpt = (item) => {
+    console.log(item);
     if (item.iconName === "circle-user") {
       navigate("/profile");
     } else if (item.iconName === "heart") {
       console.log("heart");
-    } else if (item.iconName === "bag-shopping") {
-      navigate("/shoppingBag");
+    } else if (item.iconName === "envelope") {
+      navigate("/envelope");
     }
   };
 
-  const userIcons = icons.map((item, index) => {
+  const userIcons = store.icons.map((item, index) => {
     return (
       <li
         onClick={(e) => handleNavbarUserOpt(item.icon)}
@@ -57,8 +44,8 @@ export const Navbar = () => {
         key={index}
       >
         <FontAwesomeIcon className="navbar_iconsOptions" icon={item.icon} />
-        {item.icon === faBagShopping ? (
-          <span className="navbar_shoppingBar">0</span>
+        {item.icon === faEnvelope ? (
+          <span className="navbar_envelope">0</span>
         ) : (
           ""
         )}
@@ -66,20 +53,7 @@ export const Navbar = () => {
     );
   });
 
-  //list of navbar options
-
-  const opt = [
-    {
-      opt: "Contact Us",
-      link: "contact",
-    },
-    {
-      opt: "About Us",
-      link: "aboutUs",
-    },
-  ];
-
-  const navOpt = opt.map((item, index) => {
+  const navOpt = store.opt.map((item, index) => {
     return (
       <li key={index} className="nav-item">
         <Link to={item.link}>{item.opt}</Link>
@@ -94,12 +68,28 @@ export const Navbar = () => {
           <Link className="navbar_logo" to="/">
             <img src={logo} alt="2kids logo" />
           </Link>
-          <ul className="navbar_userIcons w-50 d-flex">{userIcons}</ul>
+          {store.token === null && window.innerWidth <= "335" ? (
+            <div className="navbar_mobileLogin navbar_mobileMini">
+              <FontAwesomeIcon
+                className="navbar_iconsOptions"
+                icon={faCircleUser}
+              />
+            </div>
+          ) : !store.token || store.token === null ? (
+            <div className="navbar_mobileLogin">
+              <FontAwesomeIcon
+                className="navbar_iconsOptions"
+                icon={faCircleUser}
+              />
+            </div>
+          ) : (
+            <ul className="navbar_userIcons d-flex">{userIcons}</ul>
+          )}
           <button
             className={
               store.windowsWidth <= "335"
-                ? "navbar-toggler ms-auto me-0 float_rigth"
-                : "navbar-toggler"
+                ? "navbar-toggler ms-auto me-0 float_rigth navbar_dropdownBtn"
+                : "navbar-toggler navbar_dropdownBtn"
             }
             type="button"
             data-bs-toggle="collapse"
@@ -109,7 +99,7 @@ export const Navbar = () => {
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon flex-center">
-              <FontAwesomeIcon icon={faBars} />
+              <FontAwesomeIcon className="navbar_dropdownIcon" icon={faBars} />
             </span>
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -159,7 +149,18 @@ export const Navbar = () => {
               </button>
             </form>
           </div>
-          <ul className="navbar_userIcons d-flex">{userIcons}</ul>
+          {!store.token || store.token === null ? (
+            <>
+              <Link to="/">
+                <Button classname="navbar_buttons" name="Sign Up"></Button>
+              </Link>
+              <Link to="/">
+                <Button classname="navbar_buttons" name="Log In"></Button>
+              </Link>
+            </>
+          ) : (
+            <ul className="navbar_userIcons d-flex">{userIcons}</ul>
+          )}
         </div>
       )}
     </nav>

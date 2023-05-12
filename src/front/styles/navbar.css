@@ -44,7 +44,7 @@
   cursor: pointer;
 }
 
-.navbar_shoppingBar {
+.navbar_envelope {
   padding: 0 0.3rem;
 }
 
@@ -68,6 +68,31 @@
 
 .btn-outline-success:hover {
   background-color: white;
+}
+
+.navbar_buttons {
+  width: 100px;
+  background-color: var(--baby_green);
+  margin: 0 1rem 0 0;
+}
+
+.navbar_dropdownBtn {
+  width: auto;
+}
+
+.navbar_dropdownIcon {
+  color: var(--baby_green);
+}
+
+.navbar_mobileLogin {
+  width: 45%;
+  display: flex;
+  justify-content: end;
+  color: var(--baby_green);
+}
+
+.navbar_mobileMini {
+  padding-right: 1rem;
 }
 
 @media (min-width: 768px) {

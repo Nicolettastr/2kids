@@ -16,7 +16,7 @@ const Profile = () => {
     "Products",
     "Mailbox",
     "Favorites",
-    "Purse",
+    "Wallet",
     "Settings",
     "Help",
   ];
