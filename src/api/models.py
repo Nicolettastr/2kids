@@ -13,6 +13,7 @@ class User(db.Model):
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
     country = db.Column(db.String(30), nullable=False)
+    # address = db.Column(db.String(30), nullable=False)
     zip_code = db.Column(db.String(30), nullable=False)
     phone_number = db.Column(db.String(20), nullable=False)
     favorites = db.relationship("Favorite", backref=db.backref("user"))
@@ -27,6 +28,7 @@ class User(db.Model):
             "first_name": self.first_name,
             "last_name": self.last_name,
             "country": self.country,
+            # "address": self.address,
             "phone_number": self.phone_number,
             "zip_code": self.zip_code,
             "favorites": [fav.serialize() for fav in self.favorites]

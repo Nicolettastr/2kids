@@ -22,7 +22,7 @@ def handle_hello():
 
 #Create User
 
-@api.route("/signup/user", methods=["POST"])
+@api.route("/signup", methods=["POST"])
 def create_user():
     # ! dangerous to disable the csrf protection
     form = UserForm(meta={"csrf": False})

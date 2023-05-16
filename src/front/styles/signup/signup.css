@@ -1,0 +1,15 @@
+.signup_section {
+  padding: 25% 10%;
+  flex-direction: column;
+}
+
+.signup_section h3 {
+  color: var(--baby_red);
+  padding: 2rem 0;
+}
+
+.signup_container {
+  border: 1px solid var(--baby_red);
+  padding: 1rem;
+  border-radius: 0.3rem;
+}

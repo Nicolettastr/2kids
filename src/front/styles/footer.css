@@ -9,7 +9,9 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  border-top: 1px solid rgb(214, 212, 212);
+  border-top: 1px solid var(--light_grey);
+  margin-top: 10%;
+  padding-top: 5%;
 }
 
 .footer_logo {

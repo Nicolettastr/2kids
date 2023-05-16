@@ -19,11 +19,15 @@ export const Navbar = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
+  // windows screen resize event
+
   useEffect(() => {
     actions.handleResize();
   }, []);
 
   window.addEventListener("resize", actions.handleResize);
+
+  // if token exist, this user option appear, this function is to navigate depending on which icon is clicked
 
   const handleNavbarUserOpt = (item) => {
     console.log(item);
@@ -35,6 +39,8 @@ export const Navbar = () => {
       navigate("/envelope");
     }
   };
+
+  // this calls the icons variable in the store and for each element it creates a li with its icon
 
   const userIcons = store.icons.map((item, index) => {
     return (
@@ -53,6 +59,8 @@ export const Navbar = () => {
     );
   });
 
+  // this calls the opt variable in the store and for each element it creates a li option for the navbar
+
   const navOpt = store.opt.map((item, index) => {
     return (
       <li key={index} className="nav-item">
@@ -61,14 +69,31 @@ export const Navbar = () => {
     );
   });
 
+  // this calls the registerAndLoginOpt variable in the store and for each element it creates a button in the navbar to log in and register
+
+  const navBtn = store.registerAndLoginOpt.map((item, index) => {
+    return (
+      <Link key={index} to={item.link}>
+        <Button classname="navbar_buttons" name={item.opt}></Button>
+      </Link>
+    );
+  });
+
   return (
     <nav className="navbar navbar-expand-md">
+      {/* Depending on the screen size which you know because of the
+      store.windowsWidth that is a variable with window.innerWidth inside it
+      shows a different render */}
       {store.windowsWidth <= "767" ? (
         <div className="container-fluid">
           <Link className="navbar_logo" to="/">
             <img src={logo} alt="2kids logo" />
           </Link>
-          {store.token === null && window.innerWidth <= "335" ? (
+
+          {/* if the token is null or doesnt exist and windows.innerWidth is less or equal to 335px it shows whats inside */}
+
+          {(!store.token && store.windowsWidth <= "335") ||
+          (store.token === null && store.windowsWidth <= "335") ? (
             <div className="navbar_mobileLogin navbar_mobileMini">
               <FontAwesomeIcon
                 className="navbar_iconsOptions"
@@ -137,7 +162,7 @@ export const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="d-flex navbar_lg_ul">{navOpt}</ul>
-            <form className="d-flex" role="search">
+            <form className="navbar_form d-flex" role="search">
               <input
                 className="form-control me-2"
                 type="search"
@@ -150,14 +175,7 @@ export const Navbar = () => {
             </form>
           </div>
           {!store.token || store.token === null ? (
-            <>
-              <Link to="/">
-                <Button classname="navbar_buttons" name="Sign Up"></Button>
-              </Link>
-              <Link to="/">
-                <Button classname="navbar_buttons" name="Log In"></Button>
-              </Link>
-            </>
+            <>{navBtn}</>
           ) : (
             <ul className="navbar_userIcons d-flex">{userIcons}</ul>
           )}

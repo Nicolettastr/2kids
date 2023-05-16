@@ -1,0 +1,19 @@
+.signupform_inputContainer {
+  flex-direction: column;
+  padding: 0.5rem 0.3rem;
+}
+
+.signupform_inputContainer label {
+  margin-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.signupForm_submitBtn {
+  flex-direction: column;
+  margin: 10% 0;
+}
+
+.signupForm_showPassword {
+  padding: 0 0.5rem;
+  color: var(--baby_green);
+}
