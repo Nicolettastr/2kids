@@ -1,13 +1,4 @@
-# WebApp boilerplate with React JS and Flask API
-
-Build web applications using React.js for the front end and python/flask for your backend API.
-
-- Documentation can be found here: https://start.4geeksacademy.com/starters/react-flask
-- Here is a video on [how to use this template](https://www.loom.com/share/f37c6838b3f1496c95111e515e83dd9b)
-- Integrated with Pipenv for package managing.
-- Fast deployment to heroku [in just a few steps here](https://start.4geeksacademy.com/backend/deploy-heroku-posgres).
-- Use of .env file.
-- SQLAlchemy integration for database abstraction.
+### Get Started:
 
 ### 1) Installation:
 
@@ -31,28 +22,6 @@ It is recomended to install the backend first, make sure you have Python 3.8, Pi
 
 > Note: Codespaces users can connect to psql by typing: `psql -h localhost -U gitpod example`
 
-### Backend Populate Table Users
-
-To insert test users in the database execute the following command:
-
-```sh
-$ flask insert-test-users 5
-```
-
-And you will see the following message:
-
-```
-  Creating test users
-  test_user1@test.com created.
-  test_user2@test.com created.
-  test_user3@test.com created.
-  test_user4@test.com created.
-  test_user5@test.com created.
-  Users created successfully!
-```
-
-To update with all yours tables you can edit the file app.py and go to the line 80 to insert the code to populate others tables
-
 ### Front-End Manual Installation:
 
 -   Make sure you are using node version 14+ and that you have already successfully installed and runned the backend.
@@ -60,9 +29,6 @@ To update with all yours tables you can edit the file app.py and go to the line 
 1. Install the packages: `$ npm install`
 2. Start coding! start the webpack dev server `$ npm run start`
 
-## Publish your website!
-
-This boilerplate it's 100% read to deploy with Render.com and Heroku in a matter of minutes. Please read the [official documentation about it](https://start.4geeksacademy.com/deploy).
 
 ### Contributors
 
