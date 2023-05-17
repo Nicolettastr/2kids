@@ -1,0 +1,21 @@
+.navbar_modalButtons {
+  background-color: var(--baby_green);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.modal_title {
+  color: var(--baby_red);
+}
+
+.signupSuccess_modal {
+  width: 60px;
+  background-color: var(--baby_yellow);
+}
+
+.signupSuccess_title {
+  color: var(--baby_pink);
+}

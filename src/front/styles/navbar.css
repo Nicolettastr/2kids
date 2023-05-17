@@ -62,8 +62,8 @@
 }
 
 .nav-item a:hover {
-  text-decoration: underline;
-  color: var(--baby_green);
+  text-decoration: underline !important;
+  color: var(--baby_green) !important;
 }
 
 .btn-outline-success:hover {
@@ -86,7 +86,21 @@
 }
 
 .navbar_mobileMini {
-  padding-right: 1rem;
+  width: 45%;
+  padding: 0.3rem 0;
+  display: flex;
+  justify-content: end;
+}
+
+.navbar_btn {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border-radius: 50%;
+  color: var(--baby_green);
 }
 
 @media (min-width: 768px) {
@@ -118,12 +132,6 @@
 }
 
 @media (min-width: 900px) {
-  .navbar_lg_ul {
-    width: 50%;
-    margin: 0;
-    padding: 0 0 0 3rem;
-  }
-
   .navbar_lg_ul li {
     padding: 0 1rem;
   }

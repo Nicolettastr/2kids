@@ -9,6 +9,7 @@ import {
   faCircleUser,
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "../component/tags/button";
+import ShowModal from "./modal/loginModal";
 
 //import logo
 
@@ -18,7 +19,6 @@ import { Context } from "../store/appContext";
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
-
   // windows screen resize event
 
   useEffect(() => {
@@ -90,22 +90,35 @@ export const Navbar = () => {
             <img src={logo} alt="2kids logo" />
           </Link>
 
-          {/* if the token is null or doesnt exist and windows.innerWidth is less or equal to 335px it shows whats inside */}
+          <ShowModal />
 
+          {/* if the token is null or doesnt exist and windows.innerWidth is less or equal to 335px it shows whats inside */}
           {(!store.token && store.windowsWidth <= "335") ||
           (store.token === null && store.windowsWidth <= "335") ? (
-            <div className="navbar_mobileLogin navbar_mobileMini">
-              <FontAwesomeIcon
-                className="navbar_iconsOptions"
-                icon={faCircleUser}
-              />
+            <div className="navbar_mobileMini">
+              <button
+                className="navbar_btn"
+                variant="primary"
+                onClick={actions.handleShow}
+              >
+                <FontAwesomeIcon
+                  className="navbar_iconsOptions"
+                  icon={faCircleUser}
+                />
+              </button>
             </div>
           ) : !store.token || store.token === null ? (
             <div className="navbar_mobileLogin">
-              <FontAwesomeIcon
-                className="navbar_iconsOptions"
-                icon={faCircleUser}
-              />
+              <button
+                className="navbar_btn"
+                variant="primary"
+                onClick={actions.handleShow}
+              >
+                <FontAwesomeIcon
+                  className="navbar_iconsOptions"
+                  icon={faCircleUser}
+                />
+              </button>
             </div>
           ) : (
             <ul className="navbar_userIcons d-flex">{userIcons}</ul>
@@ -123,7 +136,7 @@ export const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon flex-center">
+            <span className="flex-center">
               <FontAwesomeIcon className="navbar_dropdownIcon" icon={faBars} />
             </span>
           </button>
@@ -156,7 +169,7 @@ export const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon flex-center">
+            <span className="flex-center">
               <FontAwesomeIcon icon={faBars} />
             </span>
           </button>

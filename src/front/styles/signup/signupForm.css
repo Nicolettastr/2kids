@@ -17,3 +17,33 @@
   padding: 0 0.5rem;
   color: var(--baby_green);
 }
+
+@media (min-width: 700px) {
+  .signupForm_section {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+
+  .signupForm_parentSection {
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem 0.5rem 1rem;
+  }
+
+  .signupForm_welcome {
+    flex-direction: column;
+    padding: 1rem 3rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .signupForm_section {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+
+  .signupForm_submitBtn {
+    flex-direction: column;
+    margin: 5% 0;
+  }
+}

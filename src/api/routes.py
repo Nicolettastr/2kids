@@ -149,7 +149,7 @@ def delete_user(user_id):
 
 @api.route("/login", methods=["POST"])
 def handle_login():
-    form = ShortUserForm(meta={"csrf": False})
+    form = LogInUserForm(meta={"csrf": False})
     if form.validate_on_submit():
         try:
             email = form.email.data

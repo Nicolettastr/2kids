@@ -17,6 +17,19 @@
   align-items: center;
 }
 
+.profile_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .profile_image {
   width: 80%;
   background-color: white;
@@ -96,6 +109,19 @@
   margin: 0.1rem;
 }
 
+.logout_btnContainer {
+  width: 80vw;
+  display: flex;
+  justify-content: end;
+  padding: 1rem;
+}
+
+.logOut {
+  background-color: var(--baby_red);
+  width: fit-content;
+  padding: 0 1rem;
+}
+
 @media (max-width: 335px) {
   .profile_section {
     padding-top: 40%;
@@ -107,7 +133,7 @@
     padding-top: 10%;
   }
 
-  .profile_section {
+  .profile_container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;

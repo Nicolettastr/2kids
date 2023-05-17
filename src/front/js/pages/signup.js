@@ -3,6 +3,7 @@ import "../../styles/signup/signup.css";
 import { Context } from "../store/appContext";
 import SignupForm from "../component/signupForm";
 import { useNavigate } from "react-router-dom";
+import Button from "../component/tags/button";
 
 const SignUp = () => {
   const { store, actions } = useContext(Context);
@@ -20,8 +21,8 @@ const SignUp = () => {
     phone_number: "",
   });
 
+  //function that sets userData with the information pass by the user
   const handleChange = (ev) => {
-    console.log(userData);
     setUserData({ ...userData, [ev.target.name]: ev.target.value });
   };
 
@@ -29,6 +30,7 @@ const SignUp = () => {
 
   return (
     <>
+      {/* //if signup is successful, the variable turns true and sends the user to the home page */}
       {store.signupSuccessful ? (
         navigate("/")
       ) : (

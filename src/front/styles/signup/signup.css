@@ -1,5 +1,5 @@
 .signup_section {
-  padding: 25% 10%;
+  padding: 20% 10%;
   flex-direction: column;
 }
 
@@ -9,7 +9,29 @@
 }
 
 .signup_container {
-  border: 1px solid var(--baby_red);
+  border: 3px solid var(--baby_red);
   padding: 1rem;
   border-radius: 0.3rem;
+}
+
+@media (min-width: 500px) {
+  .signup_section {
+    padding: 15% 10%;
+  }
+}
+
+@media (min-width: 700px) {
+  .signup_section {
+    padding: 5%;
+  }
+
+  .signup_container {
+    padding: 0;
+  }
+}
+
+@media (min-width: 800px) {
+  .signup_section h3 {
+    padding-bottom: 0.5rem ;
+  }
 }

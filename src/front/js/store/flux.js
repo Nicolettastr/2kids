@@ -7,6 +7,7 @@ import {
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
+      user: null,
       windowsWidth: window.innerWidth,
       activeColor: "pink",
       token: null,
@@ -28,6 +29,11 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       showPassword: false,
       signupSuccessful: false,
+      show: false,
+      showModalSignup: false,
+      logoutSuccessful: false,
+      loginSuccessful: false,
+      invalid: false,
     },
     actions: {
       handleResize: () => {
@@ -54,6 +60,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       handleShowPassword: () => {
         const store = getStore();
         setStore({ showPassword: !store.showPassword });
+      },
+
+      handleShow: () => {
+        setStore({ show: true });
+      },
+
+      handleClose: () => {
+        setStore({ show: false, showModalSignup: false });
       },
 
       handleValidateForm: (ev, userData) => {
@@ -106,7 +120,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           if (response.ok) {
             const data = await response.json();
             console.log(data);
-            setStore({ signupSuccessful: true });
+            setStore({ signupSuccessful: true, showModalSignup: true });
             setTimeout(() => setStore({ signupSuccessful: false }), 4000);
             return true;
           }
@@ -114,6 +128,59 @@ const getState = ({ getStore, getActions, setStore }) => {
         } catch (e) {
           console.log("error:", e);
         }
+      },
+
+      login: async (e, email, password) => {
+        const store = getStore();
+        e.preventDefault();
+        const opt = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+          }),
+        };
+
+        try {
+          const response = await fetch(
+            `https://3001-nicolettastr-2kids-plbjn8qiwqn.ws-eu97.gitpod.io/api/login`,
+            opt
+          );
+
+          const data = await response.json();
+
+          localStorage.setItem("user", JSON.stringify(data.user));
+          localStorage.setItem("token", JSON.stringify(data.access_token));
+          const storedUser = JSON.parse(localStorage.getItem("user"));
+          const storedToken = JSON.parse(localStorage.getItem("token"));
+          setStore({
+            token: storedToken,
+            user: storedUser,
+          });
+
+          setStore({ loginSuccessful: true });
+          setTimeout(() => {
+            setStore({ loginSuccessful: false });
+          }, 3000);
+        } catch (error) {
+          setStore({ invalid: true });
+          setTimeout(() => {
+            setStore({ invalid: false });
+          }, 3000);
+          setStore({ errors: error.errors });
+          console.error(error, store.errors);
+        }
+      },
+
+      handleLogOut: () => {
+        setStore({ user: null, token: null, logoutSuccessful: true });
+        setTimeout(() => {
+          setStore({ logoutSuccessful: false });
+        }, 3000);
+        localStorage.clear();
       },
     },
   };
