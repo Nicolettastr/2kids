@@ -107,7 +107,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         store.signupSuccessful = false;
         try {
           const response = await fetch(
-            `https://3001-nicolettastr-2kids-plbjn8qiwqn.ws-eu97.gitpod.io/api/signup`,
+            `http://127.0.0.1:3001/api/signup`,
             {
               method: "POST",
               headers: {
@@ -146,7 +146,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const response = await fetch(
-            `https://3001-nicolettastr-2kids-plbjn8qiwqn.ws-eu97.gitpod.io/api/login`,
+            `http://127.0.0.1:3001/api/login`,
             opt
           );
 

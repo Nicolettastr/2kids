@@ -7,6 +7,8 @@ const common = require('./webpack.common.js');
 const port = 3000;
 let publicUrl = `ws://localhost:${port}/ws`;
 
+const Dotenv = require('dotenv-webpack');
+
 //only for github
 if(process.env.GITPOD_WORKSPACE_URL){
   const [schema, host] = process.env.GITPOD_WORKSPACE_URL.split('://');
@@ -34,6 +36,7 @@ module.exports = merge(common, {
         },
     },
     plugins: [
+        new Dotenv(),
         // new FriendlyErrorsWebpackPlugin(),
         // new ErrorOverlayPlugin(),
         // new PrettierPlugin({
