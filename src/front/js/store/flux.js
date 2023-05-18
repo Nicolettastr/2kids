@@ -41,7 +41,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       handleColor: (color) => {
-        setStore({ activeColor: color });
+        setStore({
+          activeColor: color,
+        });
       },
 
       removeUnderscores: (word) => {
