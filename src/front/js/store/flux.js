@@ -107,7 +107,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         store.signupSuccessful = false;
         try {
           const response = await fetch(
-            `http://127.0.0.1:3001/api/signup`,
+            `${process.env.BACKEND_URL}api/signup`,
             {
               method: "POST",
               headers: {
@@ -146,7 +146,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         try {
           const response = await fetch(
-            `http://127.0.0.1:3001/api/login`,
+            `${process.env.BACKEND_URL}api/login`,
             opt
           );
 
