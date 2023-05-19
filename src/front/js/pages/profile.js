@@ -5,29 +5,63 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { Context } from "../store/appContext";
 import Button from "../component/tags/button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Profile = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
-  const opt = [
-    "Account",
-    "Reviews",
-    "Shopping",
-    "Sales",
-    "Products",
-    "Mailbox",
-    "Favorites",
-    "Wallet",
-    "Settings",
-    "Help",
+  const optObjects = [
+    {
+      name: "Account",
+      link: "/Account"
+    },
+    {
+      name: "Reviews",
+      link: "/Reviews"
+    },
+    {
+      name: "Shopping",
+      link: "/Shopping"
+    },
+    {
+      name: "Sales",
+      link: "/Sales"
+    },
+    {
+      name: "Products",
+      link: "/Products"
+    },
+    {
+      name: "Mailbox",
+      link: "/Mailbox"
+    },
+    {
+      name: "Favorites",
+      link: "/Favorites"
+    },
+    {
+      name: "Wallet",
+      link: "/Wallet"
+    },
+    {
+      name: "Settings",
+      link: "/Settings"
+    },
+    {
+      name: "Help",
+      link: "/Help"
+    }
   ];
-  const profileOpt = opt.map((item, index) => {
+  
+
+  const profileOpt = optObjects.map((item, index) => {
     return (
-      <div key={index} className="flex-center">
-        <p>{item}</p>
-      </div>
+      <Link  key={index} to={item.link} >
+        <div className="flex-center">
+          <p>{item.name}</p>
+        </div>
+      </Link>
     );
   });
 
@@ -59,12 +93,14 @@ const Profile = () => {
     );
   });
 
+  const color = localStorage.getItem('activeColor');
+
   return (
     <>
       {store.logoutSuccessful ? (
         navigate("/")
       ) : (
-        <section className={`profile_section  ${store.activeColor}`}>
+        <section className={`profile_section  ${color}`}>
           <div className="profile_container flex-center">
             <div className="profile_image flex-center">
               <div className="profile_imageContainer">

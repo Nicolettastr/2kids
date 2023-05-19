@@ -19,3 +19,28 @@
 .signupSuccess_title {
   color: var(--baby_pink);
 }
+
+.navbar_container {
+  position: relative;
+}
+
+.menu_section {
+  position: absolute;
+  top: -300px;
+  background-color: white;
+  transition: all 1s;
+}
+
+.menu_listContainer {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.menu_listContainer li {
+  padding: 1rem;
+}
+
+.showMenu {
+  top: 0px;
+}

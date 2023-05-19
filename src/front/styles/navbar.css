@@ -1,5 +1,5 @@
 .navbar {
-  width: 100%;
+  width: 100vw;
   position: fixed;
   top: 0;
   background-color: white;
@@ -61,7 +61,8 @@
   font-size: var(--small);
 }
 
-.nav-item a:hover {
+.nav-item a:hover,
+.nav-item:hover {
   text-decoration: underline !important;
   color: var(--baby_green) !important;
 }
@@ -72,6 +73,10 @@
 
 .navbar_dropdownBtn {
   width: auto;
+}
+
+.navbar_container {
+  z-index: 100000;
 }
 
 .navbar_dropdownIcon {
@@ -101,6 +106,10 @@
   background: transparent;
   border-radius: 50%;
   color: var(--baby_green);
+}
+
+.nav-item {
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {

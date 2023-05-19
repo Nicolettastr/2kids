@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "../component/tags/button";
 import ShowModal from "./modal/loginModal";
+import Menu from "./modal/menu";
 
 //import logo
 
@@ -40,6 +41,18 @@ export const Navbar = () => {
     }
   };
 
+  //this shows the menu from the navbar if clicked
+
+  const handleMenu = () => {
+    const menuId = document.querySelector('#menuSection');
+
+    if (!menuId.classList.contains('showMenu')) {
+      menuId.classList.add('showMenu');
+    }else{
+      menuId.classList.remove('showMenu')
+    }
+  };
+
   // this calls the icons variable in the store and for each element it creates a li with its icon
 
   const userIcons = store.icons.map((item, index) => {
@@ -62,6 +75,14 @@ export const Navbar = () => {
   // this calls the opt variable in the store and for each element it creates a li option for the navbar
 
   const navOpt = store.opt.map((item, index) => {
+    if (item.opt === "Menu" && !item.link) {
+      return (
+        <li key={index} onClick={handleMenu} className="nav-item">
+          {item.opt}
+        </li>
+      );
+    }
+  
     return (
       <li key={index} className="nav-item">
         <Link to={item.link}>{item.opt}</Link>
@@ -72,14 +93,16 @@ export const Navbar = () => {
   // this calls the registerAndLoginOpt variable in the store and for each element it creates a button in the navbar to log in and register
 
   const navBtn = store.registerAndLoginOpt.map((item, index) => {
-    return (
-      <Link key={index} to={item.link}>
-        <Button classname="navbar_buttons" name={item.opt}></Button>
-      </Link>
-    );
+      return (
+        <Link key={index} to={item.link} >
+          <Button classname="navbar_buttons" name={item.opt}></Button>
+        </Link>
+      );
   });
 
   return (
+    <>
+    <div className="navbar_container">
     <nav className="navbar navbar-expand-md">
       {/* Depending on the screen size which you know because of the
       store.windowsWidth that is a variable with window.innerWidth inside it
@@ -91,7 +114,6 @@ export const Navbar = () => {
           </Link>
 
           <ShowModal />
-
           {/* if the token is null or doesnt exist and windows.innerWidth is less or equal to 335px it shows whats inside */}
           {(!store.token && store.windowsWidth <= "335") ||
           (store.token === null && store.windowsWidth <= "335") ? (
@@ -141,7 +163,9 @@ export const Navbar = () => {
             </span>
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">{navOpt}</ul>
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              {navOpt}
+              </ul>
             <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
@@ -174,7 +198,9 @@ export const Navbar = () => {
             </span>
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="d-flex navbar_lg_ul">{navOpt}</ul>
+            <ul className="d-flex navbar_lg_ul">
+              {navOpt}
+            </ul>
             <form className="navbar_form d-flex" role="search">
               <input
                 className="form-control me-2"
@@ -195,5 +221,8 @@ export const Navbar = () => {
         </div>
       )}
     </nav>
+    <Menu/>
+    </div>
+    </>
   );
 };

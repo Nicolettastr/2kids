@@ -1,0 +1,64 @@
+.account_section {
+    padding: 25% 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.account_container {
+    width: 80vw;
+    max-width: 500px;
+    border: 3px solid var(--baby_yellow);
+    border-radius: 0.3rem;
+}
+
+.account_userData{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.account_userWelcoming {
+    padding: 1rem 1rem 0 1rem;
+    border-bottom: 3px solid var(--baby_yellow);
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.account_userData div {
+    width: 100%;
+    padding: 0.3rem 0.5rem;
+}
+
+.account_userData input {
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+    background-color: var(--light_yellow);
+    border-radius: 0.3rem;
+    border: none;
+}
+
+@media (min-width: 500px) {
+    .account_section {
+        padding: 20% 0;
+    }
+
+    .account_userDataContainer {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (min-width: 650px) {
+    .account_section {
+        padding: 15% 0;
+    }
+
+}
+
+@media (min-width: 900px) {
+    .account_section {
+        padding: 10% 0;
+    }
+}
