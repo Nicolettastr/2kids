@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import profileImg from "../../img/mujer.png";
 import "../../styles/profile.css";
+import profileImg from "../../img/mujer.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { Context } from "../store/appContext";
@@ -14,50 +14,49 @@ const Profile = () => {
   const optObjects = [
     {
       name: "Account",
-      link: "/Account"
+      link: "/Account",
     },
     {
       name: "Reviews",
-      link: "/Reviews"
+      link: "/Reviews",
     },
     {
       name: "Shopping",
-      link: "/Shopping"
+      link: "/Shopping",
     },
     {
       name: "Sales",
-      link: "/Sales"
+      link: "/Sales",
     },
     {
       name: "Products",
-      link: "/Products"
+      link: "/Products",
     },
     {
       name: "Mailbox",
-      link: "/Mailbox"
+      link: "/Mailbox",
     },
     {
       name: "Favorites",
-      link: "/Favorites"
+      link: "/Favorites",
     },
     {
       name: "Wallet",
-      link: "/Wallet"
+      link: "/Wallet",
     },
     {
       name: "Settings",
-      link: "/Settings"
+      link: "/Settings",
     },
     {
       name: "Help",
-      link: "/Help"
-    }
+      link: "/Help",
+    },
   ];
-  
 
   const profileOpt = optObjects.map((item, index) => {
     return (
-      <Link  key={index} to={item.link} >
+      <Link key={index} to={item.link}>
         <div className="flex-center">
           <p>{item.name}</p>
         </div>
@@ -93,7 +92,7 @@ const Profile = () => {
     );
   });
 
-  const color = localStorage.getItem('activeColor');
+  const color = localStorage.getItem("activeColor");
 
   return (
     <>

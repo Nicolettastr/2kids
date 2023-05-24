@@ -5,18 +5,18 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const getState = ({ getStore, getActions, setStore }) => {
-
   return {
     store: {
       user: null,
       windowsWidth: window.innerWidth,
       activeColor: "pink",
       token: null,
+      edit: true,
       icons: [{ icon: faCircleUser }, { icon: faHeart }, { icon: faEnvelope }],
       opt: [
         { opt: "Contact Us", link: "contact" },
-        { opt: "Menu"},
-        { opt: "Blog", link: "blog"}
+        { opt: "Menu" },
+        { opt: "Blog", link: "blog" },
       ],
       categories: [
         {
@@ -56,7 +56,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         {
           name: "Party",
-          image: "https://m.media-amazon.com/images/I/615Bnr4xpxL._AC_SY355_.jpg",
+          image:
+            "https://m.media-amazon.com/images/I/615Bnr4xpxL._AC_SY355_.jpg",
         },
         {
           name: "Books And Education",
@@ -97,7 +98,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({
           activeColor: color,
         });
-        localStorage.setItem('activeColor', color);
+        localStorage.setItem("activeColor", color);
       },
 
       removeUnderscores: (word) => {
@@ -127,7 +128,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       handleMenu: () => {
-          console.log("menu")
+        console.log("menu");
       },
 
       handleValidateForm: (ev, userData) => {
@@ -166,16 +167,13 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         store.signupSuccessful = false;
         try {
-          const response = await fetch(
-            `http://localhost:3001/api/signup`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(userForm),
-            }
-          );
+          const response = await fetch(`http://localhost:3001/api/signup`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userForm),
+          });
           console.log(response);
           if (response.ok) {
             const data = await response.json();
@@ -205,10 +203,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         };
 
         try {
-          const response = await fetch(
-            `http://localhost:3001/api/login`,
-            opt
-          );
+          const response = await fetch(`http://localhost:3001/api/login`, opt);
 
           const data = await response.json();
 
@@ -241,6 +236,12 @@ const getState = ({ getStore, getActions, setStore }) => {
           setStore({ logoutSuccessful: false });
         }, 3000);
         localStorage.clear();
+      },
+
+      handleEditUser: () => {
+        const store = getStore();
+        setStore({ edit: false });
+        console.log(store.edit);
       },
     },
   };

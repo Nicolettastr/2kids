@@ -14,11 +14,11 @@ const SignUp = () => {
     first_name: "",
     last_name: "",
     email: "",
-    password: "",
-    confirm_password: "",
+    phone_number: "",
     country: "select-country",
     zip_code: "",
-    phone_number: "",
+    password: "",
+    confirm_password: "",
   });
 
   //function that sets userData with the information pass by the user

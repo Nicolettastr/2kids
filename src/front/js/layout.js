@@ -12,6 +12,7 @@ import SignUp from "./pages/signup";
 import Login from "./pages/login";
 import Account from "./pages/Account";
 import Contact from "./pages/contact";
+import Thanks from "./pages/thanks";
 
 //create your first component
 const Layout = () => {
@@ -31,6 +32,7 @@ const Layout = () => {
             <Route element={<Login />} path="/login" />
             <Route element={<Account />} path="/Account" />
             <Route element={<Contact />} path="/contact" />
+            <Route element={<Thanks />} path="/thanks" />
             {/* <Route element={<Single />} path="/single/:theid" /> */}
             <Route element={<h1>Not found!</h1>} />
           </Routes>

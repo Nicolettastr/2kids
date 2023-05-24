@@ -26,8 +26,8 @@ const Account = () => {
     }
   });
 
-  const handleChange = () => {
-    console.log("hola");
+  const handleChange = (e) => {
+    console.log(e);
   };
 
   return (
@@ -39,7 +39,10 @@ const Account = () => {
             <p>This is you account information.</p>
           </div>
           <div>
-            <FontAwesomeIcon icon={faPenToSquare} />
+            <FontAwesomeIcon
+              onClick={actions.handleEditUser}
+              icon={faPenToSquare}
+            />
           </div>
         </div>
         <div className="account_userDataContainer">
@@ -63,7 +66,6 @@ const Account = () => {
                     placeholder={value}
                     value={value}
                     onChange={handleChange}
-                    readonly
                   ></Input>
                 </div>
               );

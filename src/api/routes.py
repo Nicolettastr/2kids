@@ -5,11 +5,12 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Favorite
 from api.forms import FavoriteForm, LogInUserForm, UserForm
 from api.utils import generate_sitemap, APIException
-from flask_jwt_extended import create_access_token, current_user, jwt_required, get_jwt_identity, set_access_cookies, verify_jwt_in_request
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, set_access_cookies, verify_jwt_in_request
 from sqlalchemy.exc import IntegrityError, NoForeignKeysError
 
-api = Blueprint('api', __name__)
 
+
+api = Blueprint('api', __name__)
 
 @api.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
@@ -186,7 +187,6 @@ def access_account():
     return jsonify(logged_in_as=user.serialize()), 200
 
 # Logout -----------------
-
 
 @api.route("/logout")
 def logout():

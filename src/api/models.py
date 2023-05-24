@@ -19,6 +19,7 @@ class User(db.Model):
     zip_code = db.Column(db.String(30), nullable=False)
     phone_number = db.Column(db.String(20), nullable=False)
     favorites = db.relationship("Favorite", backref=db.backref("user"))
+    profile_image = db.Column(db.String(255), nullable=True)
 
     def __repr__(self):
         return f"<User {self.id}: {self.first_name} {self.last_name}>"
@@ -33,7 +34,8 @@ class User(db.Model):
             # "address": self.address,
             "phone_number": self.phone_number,
             "zip_code": self.zip_code,
-            "favorites": [fav.serialize() for fav in self.favorites]
+            "favorites": [fav.serialize() for fav in self.favorites],
+            "profile_image": self.profile_image
         }
 
 class Favorite(db.Model):
