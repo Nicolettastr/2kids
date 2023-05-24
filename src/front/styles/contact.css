@@ -4,19 +4,26 @@
 
 .contact_form,
 .contact_container,
-.input_container {
+.input_container,
+.contact_div {
     flex-direction: column;
     height: fit-content;
 }
 
-.contact_div {
+.contact_inputType {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+}
+
+.input_container {
+    align-items: start;
 }
 
 .contact_title {
     text-align: center;
     padding-bottom: 1rem;
+    color: white;
+    font-size: 2rem;
 }
 
 .input_container input,
@@ -27,7 +34,6 @@
     padding: 0.5rem 1rem;
     border-radius: 0.3rem;
     border: none;
-    background: var(--light_yellow);
 }
 
 .input_container textarea {
@@ -37,9 +43,20 @@
 }
 
 .contact_button {
-    width: 50%;
+    width: 150px;
     height: 40px;
     margin: 2rem 0;
+}
+
+.contact_imgSection h2 {
+    text-align: center;
+    padding: 2rem;
+}
+
+.contact_form {
+    background: var(--light_blue);
+    padding: 2rem 1rem;
+    border-radius: 0.3rem;
 }
 
 @media (min-width: 500px) {
@@ -54,11 +71,7 @@
         padding: 10% 0;
     }
 
-    .contact_imgContainer {
-        width: 100%;
-    }
-
-    .contact_imgContainer img {
-        width: 100%;
+    .input_container {
+        flex-direction: row;
     }
 }
