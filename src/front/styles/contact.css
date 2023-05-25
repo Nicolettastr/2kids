@@ -1,5 +1,6 @@
 .contact_section {
     padding: 25% 0;
+    background: rgba(166, 166, 255, 0.322);
 }
 
 .contact_form,
@@ -22,7 +23,6 @@
 .contact_title {
     text-align: center;
     padding-bottom: 1rem;
-    color: white;
     font-size: 2rem;
 }
 
@@ -33,7 +33,7 @@
     margin: 0.5rem;
     padding: 0.5rem 1rem;
     border-radius: 0.3rem;
-    border: none;
+    border: 1px solid var(--light_grey);
 }
 
 .input_container textarea {
@@ -54,7 +54,7 @@
 }
 
 .contact_form {
-    background: var(--light_blue);
+    background-color: white;
     padding: 2rem 1rem;
     border-radius: 0.3rem;
 }

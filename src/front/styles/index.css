@@ -17,10 +17,10 @@
   --baby_brown: #7f3d38;
   --light_yellow: #fdf7c3;
   --light_green: #c8dbbe;
-  --light_blue: #afced9;
+  --light_blue: rgba(166, 166, 255, 0.322);
   --light_red: #ffb4b4;
   --light_pink: #fcd1d1e3;
-  --light_grey: rgb(214, 212, 212);
+  --light_grey: rgba(224, 220, 220, 0.596);
   --x-small: 1rem;
   --small: 1.2rem;
   --medium: 1.6rem;

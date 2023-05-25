@@ -20,6 +20,7 @@ class User(db.Model):
     phone_number = db.Column(db.String(20), nullable=False)
     favorites = db.relationship("Favorite", backref=db.backref("user"))
     profile_image = db.Column(db.String(255), nullable=True)
+    favorites = db.relationship("Favorite", backref=db.backref("user"))
 
     def __repr__(self):
         return f"<User {self.id}: {self.first_name} {self.last_name}>"
@@ -51,5 +52,4 @@ class Favorite(db.Model):
         return {
             "id": self.id,
             "user_id": self.user_id,
-        }
-        
+        }       

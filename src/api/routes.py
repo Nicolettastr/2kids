@@ -3,10 +3,11 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Favorite
-from api.forms import FavoriteForm, LogInUserForm, UserForm
+from api.forms import LogInUserForm, UserForm
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, set_access_cookies, verify_jwt_in_request
 from sqlalchemy.exc import IntegrityError, NoForeignKeysError
+import sys
 
 
 
@@ -191,3 +192,7 @@ def access_account():
 @api.route("/logout")
 def logout():
     return "You log out"
+
+# create product
+
+

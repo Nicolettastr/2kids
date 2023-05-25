@@ -1,0 +1,17 @@
+.products_section {
+    padding: 25% 0;
+    background: var(--light_yellow);
+}
+
+@media (min-width: 500px) {
+    .products_section {
+        padding: 15% 0;
+    }
+}
+
+@media (min-width: 800px) {
+
+    .products_section {
+        padding: 10% 0;
+    }
+}
