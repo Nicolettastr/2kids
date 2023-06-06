@@ -3,7 +3,6 @@ import "../../styles/signup/signup.css";
 import { Context } from "../store/appContext";
 import SignupForm from "../component/signupForm";
 import { useNavigate } from "react-router-dom";
-import Button from "../component/tags/button";
 
 const SignUp = () => {
   const { store, actions } = useContext(Context);
@@ -17,6 +16,7 @@ const SignUp = () => {
     phone_number: "",
     country: "select-country",
     zip_code: "",
+    address: "",
     password: "",
     confirm_password: "",
   });

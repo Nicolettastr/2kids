@@ -23,7 +23,7 @@ class UserForm(FlaskForm):
     first_name = StringField("First Name", validators=[InputRequired()])
     last_name = StringField("Last Name", validators=[InputRequired()])
     country = StringField("Country", validators=[InputRequired()])
-    # address = StringField("Address", validators=[InputRequired()])
+    address = StringField("Address", validators=[InputRequired()])
     zip_code = StringField("Zip Code", validators=[
                            InputRequired(), Regexp(zip_code_regex)])
     phone_number = StringField("Phone Number", validators=[
@@ -37,4 +37,17 @@ class LogInUserForm(FlaskForm):
 
 class FavoriteForm(FlaskForm):
     user_id = IntegerField("User ID", validators=[InputRequired()])
-    # product_id = IntegerField("Product ID", validators=[InputRequired()])
+    product_id = IntegerField("Product ID", validators=[InputRequired()])
+    
+class ProductForm(FlaskForm):
+    name = StringField("Name", validators=[InputRequired()])
+    category = StringField("Category", validators=[InputRequired()])
+    subcategory = StringField("Subcategory", validators=[InputRequired()])
+    price = StringField("Price", validators=[InputRequired()])
+    weight = StringField("Weight", validators=[InputRequired()])
+    length = StringField("Length", validators=[InputRequired()])
+    width = StringField("Width", validators=[InputRequired()])
+    height = StringField("Height", validators=[InputRequired()])
+    state = StringField("State", validators=[InputRequired()])
+    description = StringField("Description", validators=[InputRequired()])
+    user_id = IntegerField("User ID", validators=[InputRequired()])

@@ -1,0 +1,25 @@
+.newProduct_section {
+    padding: 25% 0;
+}
+
+.newProductForm_section div {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.newProduct_section {
+    flex-direction: column;
+}
+
+.newProductForm_inputContainer label {
+    padding-right: 1rem;
+}
+
+.newProductForm_inputContainer input {
+    padding: 0 0.5rem;
+}
+
+.inacticeInput {
+    display: none !important;
+}

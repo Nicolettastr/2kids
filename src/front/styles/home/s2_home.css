@@ -1,21 +1,6 @@
 .home_categoriesOptin {
-  width: 150px;
-  height: 150px;
-}
-
-.home_categoriesOptin figure {
-  width: 100%;
-  height: 100%;
-  border-radius: 0.3rem;
-  cursor: pointer;
-}
-
-.home_categoriesOptin figure img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
-  border-radius: 0.3rem;
+  width: 220px;
+  height: 70px;
 }
 
 .home_secondSection {
@@ -25,8 +10,8 @@
   -ms-grid-columns: auto 4% auto;
   grid-template-columns: auto auto;
   place-content: center;
-  gap: 4%;
-  padding: 4rem 0 8rem 0;
+  gap: 3%;
+  padding: 2rem 0 4rem 0;
 }
 
 .home_categoriesOptin {
@@ -36,25 +21,22 @@
 
 .home_categoriesName {
   width: 100%;
+  height: 40px;
   background: white;
   position: absolute;
   bottom: 0;
-  border-radius: 0 0 0.3rem 0.3rem;
   cursor: pointer;
+  border-radius: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .home_categoriesName p {
   margin: 0;
-  font-size: var(--x-small);
+  font-size: var(--small);
   font-weight: 600;
   color: var(--baby_blue);
-}
-
-@media (max-width: 335px) {
-  .home_categoriesOptin {
-    width: 120px;
-    height: 120px;
-  }
 }
 
 @media (min-width: 600px) {

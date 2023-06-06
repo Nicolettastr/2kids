@@ -1,16 +1,13 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import "../../../styles/home/s2_home.css";
 import { Context } from "../../store/appContext";
 
 const S2_Home = () => {
-  const {store, actions} = useContext(Context)
+  const { store, actions } = useContext(Context);
 
   const option = store.categories.map((item, index) => {
     return (
       <div key={index} className="home_categoriesOptin">
-        <figure>
-          <img src={item.image} alt={`${item.name} section`} />
-        </figure>
         <div className="home_categoriesName">
           <p>{item.name}</p>
         </div>

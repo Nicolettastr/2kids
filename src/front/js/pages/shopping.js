@@ -16,15 +16,15 @@ const Shopping = () => {
   const handleLink = (id) => {
     if (id === "course") {
       const course = document.querySelector("#course");
-      course.classList.add("show");
-      end.classList.remove("show");
+      course.classList.add("show_item");
+      end.classList.remove("show_item");
       setActiveC(true);
       setActiveCa(false);
       setActive(false);
     } else if (id === "end") {
       const end = document.querySelector("#end");
-      end.classList.add("show");
-      course.classList.remove("show");
+      end.classList.add("show_item");
+      course.classList.remove("show_item");
       setActiveCa(true);
       setActiveC(false);
       setActive(false);
@@ -76,7 +76,7 @@ const Shopping = () => {
                   <p>Date: 16/03/2023</p>
                   <p>Unit: 1</p>
                   {activeC ? (
-                    <>
+                    <div>
                       <Button
                         classname="shopping_articleBtnCancel"
                         name={trash}
@@ -85,7 +85,7 @@ const Shopping = () => {
                         classname="shopping_articleBtnCheck"
                         name={check}
                       ></Button>
-                    </>
+                    </div>
                   ) : activeCa ? (
                     <p className="shopping_completed">Completed</p>
                   ) : (

@@ -14,7 +14,8 @@ import Account from "./pages/Account";
 import Contact from "./pages/contact";
 import Thanks from "./pages/thanks";
 import Shopping from "./pages/shopping";
-import { Products } from "./pages/products";
+import Products from "./pages/products";
+import NewProduct from "./pages/newProduct";
 
 //create your first component
 const Layout = () => {
@@ -37,7 +38,7 @@ const Layout = () => {
             <Route element={<Thanks />} path="/thanks" />
             <Route element={<Shopping />} path="/Shopping" />
             <Route element={<Products />} path="/products" />
-
+            <Route element={<NewProduct />} path="/newProduct" />
             {/* <Route element={<Single />} path="/single/:theid" /> */}
             <Route element={<h1>Not found!</h1>} />
           </Routes>

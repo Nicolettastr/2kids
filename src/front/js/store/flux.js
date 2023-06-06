@@ -83,11 +83,13 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       showPassword: false,
       signupSuccessful: false,
-      show: false,
+      show_item: false,
       showModalSignup: false,
       logoutSuccessful: false,
       loginSuccessful: false,
       invalid: false,
+      newProduct: false,
+      productCreatedSuccessfully: false,
     },
     actions: {
       handleResize: () => {
@@ -120,40 +122,72 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       handleShow: () => {
-        setStore({ show: true });
+        setStore({ show_item: true });
       },
 
       handleClose: () => {
-        setStore({ show: false, showModalSignup: false });
+        setStore({ show_item: false, showModalSignup: false });
       },
 
       handleMenu: () => {
         console.log("menu");
       },
 
-      handleValidateForm: (ev, userData) => {
-        console.log("handle", userData);
+      handleNewProduct: () => {
+        setStore({ newProduct: true });
+      },
+
+      handleValidateForm: (ev, data) => {
         const actions = getActions();
         const regexs = getStore().regexs;
         ev.preventDefault();
         let newErrors = {};
-        for (let field in userData) {
-          const camelField = actions.Camel(field);
-          if (userData[field] === "") {
-            newErrors[field] = `${field} is required`;
-          } else if (
-            ["email", "password", "zip_code", "phone_number"].includes(field)
-          ) {
-            if (!regexs[`${camelField}Regex`].test(userData[field])) {
-              newErrors[field] = `Invalid ${actions.removeUnderscores(field)}!`;
+
+        if (data.email) {
+          for (let field in data) {
+            const camelField = actions.Camel(field);
+            if (data[field] === "") {
+              newErrors[field] = `${field} is required`;
+            } else if (
+              ["email", "password", "zip_code", "phone_number"].includes(field)
+            ) {
+              if (!regexs[`${camelField}Regex`].test(data[field])) {
+                newErrors[field] = `Invalid ${actions.removeUnderscores(
+                  field
+                )}!`;
+              }
+            }
+            if (data.password !== data.confirm_password) {
+              newErrors.confirm_password = "Passwords do not match";
             }
           }
-          if (userData.password !== userData.confirm_password) {
-            newErrors.confirm_password = "Passwords do not match";
+        } else if (data.category) {
+          for (let product in data) {
+            if (data[product] === "") {
+              newErrors[product] = `${product} is required`;
+            } else
+              [
+                "name",
+                "category",
+                "subcategory",
+                "price",
+                "weight",
+                "length",
+                "width",
+                "height",
+                "state",
+                "description",
+                "user_id",
+              ].includes(product);
           }
         }
+
         if (Object.keys(newErrors).length === 0) {
-          actions.handleNewUser(userData);
+          if (data.email) {
+            actions.handleNewUser(data);
+          } else if (data.category) {
+            actions.handleNewProduct(data);
+          }
         } else {
           setStore({ errors: newErrors });
           console.log("errors", newErrors);
@@ -242,6 +276,38 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         setStore({ edit: false });
         console.log(store.edit);
+      },
+
+      handleNewProduct: async (productForm) => {
+        console.log("user Info", productForm);
+        const store = getStore();
+        store.productCreatedSuccessfully = false;
+        try {
+          const response = await fetch(
+            `http://localhost:3001/api/product/create`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(productForm),
+            }
+          );
+          console.log(response);
+          if (response.ok) {
+            const data = await response.json();
+            console.log(data);
+            setStore({ productCreatedSuccessfully: true });
+            setTimeout(
+              () => setStore({ productCreatedSuccessfully: false }),
+              4000
+            );
+            return true;
+          }
+          throw Error(response.statusText);
+        } catch (e) {
+          console.log("error:", e);
+        }
       },
     },
   };

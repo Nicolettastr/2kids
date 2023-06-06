@@ -2,8 +2,8 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Favorite
-from api.forms import LogInUserForm, UserForm
+from api.models import db, User, Favorite, Products
+from api.forms import LogInUserForm, UserForm, ProductForm
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, set_access_cookies, verify_jwt_in_request
 from sqlalchemy.exc import IntegrityError, NoForeignKeysError
@@ -195,4 +195,34 @@ def logout():
 
 # create product
 
+@api.route("/product/create", methods=["POST"])
+def create_product():
+    
+    form = ProductForm(meta={"csrf": False})
+    if form.validate_on_submit():
+        try:
+            product_data = {field: getattr(
+                form, field).data for field in form._fields}
+            product = Products(**product_data)
+            db.session.add(product)
+            db.session.commit()
 
+            print(product)
+
+            product_dict = product.serialize()
+            response = jsonify(product_dict)
+            response.headers["Access-Control-Allow-Credentials"] = "true"
+            response.headers["Access-Control-Allow-Origin"] = "*"
+            return response, 200
+        except IntegrityError as e:
+            db.session.rollback()
+            return jsonify({"error": "database information check failed", "ms": str(e)}), 400
+        except Exception as e:
+            db.session.rollback()
+            print(sys.exc_info())
+            return jsonify({"error": str(e)}), 500
+        finally:
+            db.session.close()
+    else:
+        errors = {field: errors[0] for field, errors in form.errors.items()}
+        return jsonify({"error": "validation error", "errors": errors}), 400
