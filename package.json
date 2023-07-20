@@ -82,7 +82,7 @@
 		"@vercel/postgres": "^0.3.0",
 		"axios": "^1.4.0",
 		"babel-plugin-macros": "^3.1.0",
-		"bootstrap": "^5.2.3",
+		"bootstrap": "^5.3.0",
 		"dotenv": "^16.0.3",
 		"prop-types": "^15.6.1",
 		"react": "^16.8.4",
